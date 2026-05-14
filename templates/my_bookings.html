@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <h2>My Bookings</h2>
+
+        <table class="table table-bordered">
+            <tr>
+                <th>Helper</th>
+                <th>Service</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+            </tr>
+
+            {% for b in bookings %}
+            <tr>
+                <td>{{ b.helper.name }}</td>
+                <td>{{ b.service_type }}</td>
+                <td>{{ b.booking_date }}</td>
+                <td>{{ b.booking_time }}</td>
+                <td>{{ b.status }}</td>
+                <td>
+                    {% if b.status == "pending" %}
+                    <a href="/payments/payment/{{ b.id }}/" class="btn btn-success">Pay</a>
+                    {% else %}
+                    Paid
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+
+        <h3>Payment for {{ booking.helper.name }}</h3>
+        <h4>Amount: ₹{{ amount }}</h4>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <select name="payment_method" class="form-control mb-3">
+                <option>UPI</option>
+                <option>Card</option>
+                <option>Cash</option>
+            </select>
+
+            <button class="btn btn-success w-100">Pay Now</button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

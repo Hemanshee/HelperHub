@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<section class="hero-section">
+    <div class="hero-text">
+        <h1>Find Trusted <br>
+            <span> Home Helpers </span> 🏠
+        </h1>
+
+        <p>Book cleaning, cooking & many more services easily at your doorstep.</p>
+
+        <div class="hero-buttons">
+
+            <a href="/helpers/" class="btn btn-main">Explore Helpers</a>
+
+            
+            <a href="/dashboard/" class="btn btn-outline-custom">Book Now</a>
+        
+            <div class="hero-stats">
+
+    <div class="stat">
+        <i class="fa-solid fa-shield"></i>
+        Verified Helpers
+    </div>
+
+    <div class="stat">
+        <i class="fa-solid fa-star"></i>
+        4.8+ Rating
+    </div>
+
+    <div class="stat">
+        <i class="fa-solid fa-users"></i>
+        500+ Happy Users
+    </div>
+
+</div>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="">
+    </div>
+
+</section>
+
+
+
+<!-- Services -->
+
+<section class="service-section">
+
+    <h2 class="section-title">Explore Popular Services</h2>
+
+    <div class="services-grid">
+
+        <!-- cleaning -->
+         <div class="service-card">
+
+            <div class="service-badge">
+Popular
+</div>
+
+            <i class="fa-solid fa-broom"></i>
+
+            <h3>Cleaning</h3>
+
+            <p>Professional home cleaning services for your daily needs.</p>
+
+            <a href="/helpers/?service=cleaning"class="service-btn">Book Now</a>
+
+         </div>
+
+
+         <!-- Cooking -->
+          <div class="service-card">
+
+            <div class="service-badge">
+Popular
+</div>
+
+            <i class="fa-solid fa-utensils"></i>
+
+            <h3>Cooking</h3>
+
+            <p>Experienced cooks available for home food services.</p>
+
+            <a href="/helpers/?service=cooking"class="service-btn">Book Now</a>
+
+         </div>
+
+
+         <!-- Electrician -->
+          <div class="service-card">
+
+            <div class="service-badge">
+Popular
+</div>
+
+
+            <i class="fa-solid fa-bolt"></i>
+
+            <h3>Electrician</h3>
+
+            <p>Quick and trusted electrical repair solutions.</p>
+
+            <a href="/helpers/?service=electrician"class="service-btn">Book Now</a>
+
+         </div>
+
+
+         <!-- Plumber -->
+
+         <div class="service-card">
+
+            <div class="service-badge">
+Popular
+</div>
+
+            <i class="fa-solid fa-faucet"></i>
+
+            <h3>Plumber</h3>
+
+            <p>Reliable plumbing services at your doorstep.</p>
+
+            <a href="/helpers/?service=plumber"class="service-btn">Book Now</a>
+
+         </div>
+    </div>
+
+</section>
+
+
+
+
+<!-- Features -->
+
+<section class="features-section">
+
+    <h2 class="section-title">Why Choose Us</h2>
+
+    <div class="features-grid">
+
+        <!-- FEATURE 1 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-shield"></i>
+            </div>
+
+            <h3>Verified Helpers</h3>
+
+            <p> All helpers are trusted and verified for your safety.</p>
+
+        </div>
+
+        <!-- FEATURE 2 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+
+            <h3>Quick Booking</h3>
+
+            <p>Book any home service within just a few seconds.</p>
+
+        </div>
+
+        <!-- FEATURE 3 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-headset"></i>
+            </div>
+
+            <h3>24/7 Support</h3>
+
+            <p>Our support team is always available to help you.</p>
+
+        </div>
+
+        <!-- FEATURE 4 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-star"></i>
+            </div>
+
+            <h3>Top Rated Services</h3>
+
+            <p> Thousands of happy customers trust our platform.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

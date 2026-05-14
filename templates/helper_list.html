@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="helper-page">
+
+    <!-- Header -->
+
+    <div class="helper-header">
+
+        <h1>Available <span>Helpers</span></h1>
+
+        <p>Find trusted and experienced helpers for your daily needs.</p>
+
+    </div>
+
+    <!-- search Bar -->
+
+    <div class="search-filter-box">
+
+        <input type="text" placeholder="Search by name, skill or location...">
+
+        <select>
+            <option>All Skills</option>
+            <option>Cleaning</option>
+            <option>Cooking</option>
+            <option>Electrician</option>
+            <option>Plumber</option>
+        </select>
+
+        <select>
+            <option>All Locations</option>
+            <option>Jabalpur</option>
+            <option>Bhopal</option>
+            <option>Indore</option>
+        </select>
+
+        <button>
+            <i class="fa-solid fa-filter"></i> Filter
+        </button>
+
+    </div>
+
+
+    <!-- Stats -->
+
+    <div class="stats-box">
+
+        <div class="stat-card">
+            <i class="fa-solid fa-users"></i>
+            <div>
+                <h3>100+</h3>
+                <p>Trusted Helpers</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fa-solid fa-star"></i>
+            <div>
+                <h3>>4.5★</h3>
+                <p>Average Rating</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fa-solid fa-calendar-check"></i>
+            <div>
+                <h3>500+</h3>
+                <p>Jobs Completed</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fa-solid fa-headset"></i>
+            <div>
+                <h3>24/7</h3>
+                <p>Support</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Helpers List -->
+
+    <div class="helpers-grid">
+
+        {% for helper in helpers %}
+
+        <div class="helper-card">
+
+            <!-- image -->
+            <div class="helper-image">
+
+                {% if helper.profile_pic %}
+                <img src="{{ helper.profile_pic.url }}">
+
+                {% else %}
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+
+                {% endif %}
+            </div>
+
+            <!-- Status -->
+            <div class="availability-badge">Available</div>
+
+            <!-- RAting -->
+            <div class="rating-badge">⭐ {{ helper.rating }}</div>
+
+
+            <!-- Content -->
+            <div class="helper-content">
+
+                <h3>{{ helper.name }}</h3>
+
+                <!-- skills -->
+                <div class="skills-wrapper">
+                    <span class="skill-badge">{{ helper.skills }}</span>
+                </div>
+
+                <!-- Details -->
+                <p> <i class="fa-solid fa-briefcase"></i> {{ helper.experience }} Years Experience </p>
+
+                <p><i class="fa-solid fa-location-dot"></i> {{ helper.location }}</p>
+
+                <!-- Price -->
+                <h2 class="price"> ₹{{ helper.price_per_day }} <span>/day</span></h2>
+
+                <!-- Buttons -->
+
+                <div class="helper-buttons">
+                    <a href="/helpers/update/{{ helper.id }}/" class="edit-btn">Edit</a>
+
+                    <a href="/helpers/delete/{{ helper.id }}/" class="delete-btn">Delete</a>
+
+                    <a href="/bookings/book/{{ helper.id }}/" class="hire-btn">Hire Now</a>
+                </div>
+
+            </div>
+
+        </div>
+            {% endfor %}
+
+        </div>
+
+
+</section>
+
+{% endblock %}

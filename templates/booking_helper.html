@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="booking-page">
+
+    <div class="booking-container">
+
+        <div class="booking-helper-card">
+
+            {% if helper.profile_pic %}
+            <img src="{{ helper.profile_pic.url }}">
+            {% else %}
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="">
+            {% endif %}
+
+            <div class="booking-helper-content">
+
+                <h2>{{helper.name}}</h2>
+
+                <div class="booking-rating"> ⭐ {{ helper.rating }}</div>
+                
+                <p><i class="fa-solid fa-briefcase"></i>{{ helper.experience }} Years Experience</p>
+                
+                <p><i class="fa-solid fa-location-dot"></i>{{ helper.location }}</p>
+                
+                <h3>₹{{ helper.price_per_day }}<span>/day</span></h3>
+           
+            </div>
+
+        </div>
+
+        <div class="booking-form-card">
+
+            <h2>Confirm Booking</h2>
+
+            <form method="POST">
+
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button type="submit" class="confirm-btn">Confirm Booking</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

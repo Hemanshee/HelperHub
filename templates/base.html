@@ -1,0 +1,302 @@
+{% comment %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HomeAssist</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        footer {
+            background: black;
+            padding: 15px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🔥 NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">HomeAssist</a>
+
+            <div>
+                <a href="/helpers/" class="btn btn-outline-light">Helpers</a>
+                <a href="/bookings/my-bookings/" class="btn btn-outline-light">Bookings</a>
+                <a href="/logout/" class="btn btn-danger">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🔥 MAIN CONTENT -->
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- 🔥 FOOTER -->
+    <footer>
+        <p>© 2026 HomeAssist | Made with ❤️</p>
+    </footer>
+
+</body>
+
+</html> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HomeAssist</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+    <!-- 🔥 NAVBAR -->
+    <nav class="navbar navbar-expand-lg">
+
+        <div class="container">
+            <div class="logo">
+                <i class="fa-solid fa-house"></i> HomeAssist
+            </div>
+            <a class="navbar-brand text-white fw-bold" href="/">HomeAssist</a>
+
+            <div>
+                <a class="nav-link d-inline" href="/">Home</a>
+                <a class="nav-link d-inline" href="/helpers/">Helpers</a>
+                <a class="nav-link d-inline" href="/bookings/my-bookings/">Bookings</a>
+                <a class="nav-link d-inline" href="/dashboard/">Dashboard</a>
+                <a class="btn btn-danger" href="/logout/">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🔥 MAIN CONTENT -->
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- 🔥 FOOTER -->
+    <footer>
+        <p>© 2026 HomeAssist | Made with ❤️ by You</p>
+    </footer>
+
+</body>
+<script src="{% static 'js/script.js' %}"></script>
+
+</html> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeAssist</title>
+
+    <!-- Google Font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+
+        <div class="container">
+
+            <!-- logo -->
+
+            <a class="navbar-brand logo" href="/">
+                <i class="fa-solid fa-house"></i>
+                HomeAssist
+            </a>
+
+            <!-- MOBILE BUTTON -->
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+
+                <ul class="navbar-nav align-items-center">
+
+                    <li class="nav-item">
+                        <a class="nav-links" href="/">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-links" href="/helpers/">Helpers</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-links" href="/bookings/my-bookings/">Bookings</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-links" href="/dashboard/">Dashboard</a>
+                    </li>
+
+                    <li class="nav-item ms-3">
+                        <a class="logout-btn" href="/logout/">Logout</a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>
+
+    </nav>
+
+    <div class="main-container">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+
+
+    <!-- Footer -->
+
+
+    <footer>
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <!-- About -->
+                <div>
+
+                    <h3>HomeAssist</h3>
+                    <p>Trusted home helper booking platform
+                        for all your household needs.</p>
+
+                </div>
+
+                <div>
+                    <!-- Links -->
+                </div>
+
+
+                <div>
+
+                    <h3>Quick Links</h3>
+
+
+                    <p>
+                        <a href="/">Home</a>
+                    </p>
+
+                    <p>
+                        <a href="/helpers/">Helpers</a>
+                    </p>
+
+                    <p>
+                        <a href="/dashboard/">Dashboard</a>
+                    </p>
+
+                </div>
+
+                <!-- Contacy -->
+
+                <div>
+
+                    <h3>Contact</h3>
+
+                    <p>Email: www.homeassist@foryou.com</p>
+
+                    <p>Phone: +91 9399561116</p>
+
+                </div>
+            </div>
+            <hr>
+
+            <p class="copyright">
+                © 2026 HomeAssist | Made with ❤️ by Hemu
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- BOOTSTRAP JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- CUSTOM JS -->
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+
+</html>

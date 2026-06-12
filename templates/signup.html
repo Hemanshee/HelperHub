@@ -1,18 +1,55 @@
 {% extends 'base.html' %}
 
 {% block content %}
-   
-<div class="container mt-5">
-    <div class="card p-4 shadow-lg">
-        <h2 class="text-center">Signup</h2>
 
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
+<section class="auth-page">
 
-            <button class="btn btn-success w-100">Signup</button>
-        </form>
+    <div class="auth-container">
+
+        <div class="auth-left">
+
+            <h1>Join HomeAssist</h1>
+
+            <p>
+                Create your account and start booking helpers.
+            </p>
+
+            <div class="auth-icon">
+                🚀
+            </div>
+
+        </div>
+
+        <div class="auth-right">
+
+            <h2>Create Account</h2>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button class="auth-btn">
+                    Create Account
+                </button>
+
+            </form>
+
+            <p class="switch-auth">
+
+                Already have an account?
+
+                <a href="/accounts/login/">
+                    Login
+                </a>
+
+            </p>
+
+        </div>
+
     </div>
-</div>
+
+</section>
 
 {% endblock %}

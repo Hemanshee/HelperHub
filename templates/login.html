@@ -2,20 +2,62 @@
 
 {% block content %}
 
-<div class="container mt-5">
-    <div class="card p-4 shadow-lg">
-        <h2 class="text-center">Login</h2>
+<section class="auth-page">
 
-        <form method="POST">
-            {% csrf_token %}
-            
-            <input type="text" name="username" placeholder="Username" class="form-control mb-3">
-            <input type="password" name="password" placeholder="Password" class="form-control mb-3">
+    <div class="auth-container">
 
-            <button class="btn btn-primary w-100">Login</button>
-        </form>
+        <div class="auth-left">
+
+            <h1>HomeAssist</h1>
+
+            <p>
+                Find trusted helpers for your daily needs.
+            </p>
+
+            <div class="auth-icon">
+                🏠
+            </div>
+
+        </div>
+
+        <div class="auth-right">
+
+            <h2>Welcome Back 👋</h2>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <input type="text"
+                       name="username"
+                       placeholder="Username"
+                       class="auth-input">
+
+                <input type="password"
+                       name="password"
+                       placeholder="Password"
+                       class="auth-input">
+
+                <button class="auth-btn">
+                    Login
+                </button>
+
+            </form>
+
+            <p class="switch-auth">
+
+                Don't have an account?
+
+                <a href="{% url 'signup' %}">
+                    Sign Up
+                </a>
+
+            </p>
+
+        </div>
+
     </div>
-</div>
+
+</section>
 
 {% endblock %}
-

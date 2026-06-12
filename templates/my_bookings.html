@@ -2,35 +2,139 @@
 
 {% block content %}
 
-    <div class="container mt-5">
-        <h2>My Bookings</h2>
+<section class="my-bookings-page">
 
-        <table class="table table-bordered">
-            <tr>
-                <th>Helper</th>
-                <th>Service</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Status</th>
-            </tr>
+    <div class="booking-hero">
 
-            {% for b in bookings %}
-            <tr>
-                <td>{{ b.helper.name }}</td>
-                <td>{{ b.service_type }}</td>
-                <td>{{ b.booking_date }}</td>
-                <td>{{ b.booking_time }}</td>
-                <td>{{ b.status }}</td>
-                <td>
-                    {% if b.status == "pending" %}
-                    <a href="/payments/payment/{{ b.id }}/" class="btn btn-success">Pay</a>
-                    {% else %}
-                    Paid
-                    {% endif %}
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
+        <div>
+            <h1>📅 My Bookings</h1>
+            <p>View and manage all your bookings in one place.</p>
+        </div>
+
+        <div class="booking-illustration">
+            📅
+        </div>
+
     </div>
+
+    <div class="stats-row">
+
+        <div class="stat-box">
+            <h2>{{ bookings|length }}</h2>
+            <p>Total Bookings</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>{{ pending_count }}</h2>
+            <p>Pending</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>{{ completed_count }}</h2>
+            <p>Completed</p>
+        </div>
+
+    </div>
+
+    <div class="booking-list-card">
+
+        <div class="booking-list-header">
+
+            <h2>Booking List</h2>
+
+        </div>
+
+        {% if bookings %}
+
+        {% for b in bookings %}
+
+        <div class="booking-row">
+
+            <div class="helper-info">
+
+                <div class="helper-avatar">
+                    👨
+                </div>
+
+                <div>
+                    <h4>{{ b.helper.name }}</h4>
+                    <small>{{ b.service_type }}</small>
+                </div>
+
+            </div>
+
+            <div class="booking-date">
+                {{ b.booking_date }}
+            </div>
+
+            <div class="booking-time">
+                {{ b.booking_time }}
+            </div>
+
+            <div>
+
+                {% if b.status == "pending" %}
+                <span class="status pending">
+                    Pending
+                </span>
+
+                {% elif b.status == "completed" %}
+                <span class="status completed">
+                    Completed
+                </span>
+
+                {% else %}
+                <span class="status cancelled">
+                    {{ b.status }}
+                </span>
+                {% endif %}
+
+            </div>
+
+            <div>
+
+                {% if b.status == "pending" %}
+
+                <a href="/payments/payment/{{ b.id }}/" class="pay-btn">
+                    Pay Now
+                </a>
+
+                {% else %}
+
+                <span class="paid-text">
+                    Paid
+                </span>
+
+                
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+        {% else %}
+
+        <div class="empty-booking">
+
+            <h3>No Bookings Found</h3>
+
+            <p>
+                You haven't booked any helper yet.
+            </p>
+
+            <a href="/helpers/" class="browse-btn">
+                Browse Helpers
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
 
 {% endblock %}

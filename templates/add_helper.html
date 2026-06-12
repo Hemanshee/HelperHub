@@ -1,17 +1,69 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="card p-4 shadow">
-        <h2>Add Helper Profile</h2>
 
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
+<section class="helper-page">
 
-            <button class="btn btn-success">Submit</button>
-        </form>
+    <div class="helper-header">
+
+        <h1>Become a HomeAssist Helper</h1>
+
+        <p>
+            Create your profile and start receiving bookings.
+        </p>
+
     </div>
-</div>
+
+    <div class="helper-wrapper">
+
+        <div class="preview-card">
+
+            <div class="preview-avatar">
+                👤
+            </div>
+
+            <h3>Your Profile Preview</h3>
+
+            <p>
+                Add your details to create a professional helper profile.
+            </p>
+
+            <div class="preview-points">
+
+                <div>⭐ Rating</div>
+
+                <div>📍 Location</div>
+
+                <div>💼 Experience</div>
+
+                <div>💰 Daily Price</div>
+
+            </div>
+
+        </div>
+
+        <div class="form-card">
+
+            <form method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button type="submit" class="create-btn">
+                    Create Profile
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}
+
+
+

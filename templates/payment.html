@@ -2,25 +2,103 @@
 
 {% block content %}
 
-<div class="container mt-5">
-    <div class="card p-4 shadow">
+<section class="payment-page">
 
-        <h3>Payment for {{ booking.helper.name }}</h3>
-        <h4>Amount: ₹{{ amount }}</h4>
+    <div class="payment-container">
 
-        <form method="POST">
-            {% csrf_token %}
+        <div class="payment-left">
 
-            <select name="payment_method" class="form-control mb-3">
-                <option>UPI</option>
-                <option>Card</option>
-                <option>Cash</option>
-            </select>
+            <div class="payment-header">
 
-            <button class="btn btn-success w-100">Pay Now</button>
-        </form>
+                <h2>Secure Payment</h2>
+
+                <p>
+                    Complete your booking payment securely.
+                </p>
+
+            </div>
+
+            <div class="helper-summary">
+
+                <div class="helper-avatar">
+                    👨‍🔧
+                </div>
+
+                <div>
+
+                    <h3>{{ booking.helper.name }}</h3>
+
+                    <p>
+                        Service Booking
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="amount-card">
+
+                <span>Total Amount</span>
+
+                <h1>₹{{ amount }}</h1>
+
+            </div>
+
+        </div>
+
+        <div class="payment-right">
+
+            <h3>Select Payment Method</h3>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="payment-methods">
+
+                    <label class="method-card">
+
+                        <input type="radio"
+                               name="payment_method"
+                               value="UPI"
+                               checked>
+
+                        <span>📱 UPI Payment</span>
+
+                    </label>
+
+                    <label class="method-card">
+
+                        <input type="radio"
+                               name="payment_method"
+                               value="Card">
+
+                        <span>💳 Debit / Credit Card</span>
+
+                    </label>
+
+                    <label class="method-card">
+
+                        <input type="radio"
+                               name="payment_method"
+                               value="Cash">
+
+                        <span>💵 Cash Payment</span>
+
+                    </label>
+
+                </div>
+
+                <button class="pay-now-btn">
+                    Pay ₹{{ amount }}
+                </button>
+
+            </form>
+
+        </div>
 
     </div>
-</div>
+
+</section>
 
 {% endblock %}

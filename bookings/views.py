@@ -22,5 +22,29 @@ def book_helper(request, helper_id):
 
 @login_required
 def my_bookings(request):
+
     bookings = request.user.booking_set.all()
-    return render (request, 'my_bookings.html', {'bookings': bookings})
+
+    pending_count = bookings.filter(
+        status='pending'
+    ).count()
+
+    completed_count = bookings.filter(
+        status='confirmed'
+    ).count()
+
+    context = {
+        'bookings': bookings,
+        'pending_count': pending_count,
+        'completed_count': completed_count,
+    }
+
+    return render(
+        request,
+        'my_bookings.html',
+        {
+            'bookings': bookings,
+            'pending_count': pending_count,
+            'completed_count': completed_count,
+        }
+    )

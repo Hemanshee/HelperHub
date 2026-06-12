@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from .forms  import SignupForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from bookings.models import Booking
+from helpers.models import Helper
 
 # Create your views here.
 # signup view
@@ -41,4 +43,39 @@ def dashboard(request):
     if user.user_type == 'helper':
         return render(request,'helper_dashboard.html')
     
+    total_bookings = Booking.objects.filter(
+        user=request.user
+    ).count()
+
+    pending_count = Booking.objects.filter(
+        user=request.user,
+        status='pending'
+    ).count()
+
+    confirmed_count = Booking.objects.filter(
+        user=request.user,
+        status='confirmed'
+    ).count()
+
+    total_helpers = Helper.objects.count()
+
+    recent_bookings = Booking.objects.filter(
+        user=request.user
+    ).order_by('-id')[:3]
+
+    context = {
+
+        'total_bookings': total_bookings,
+
+        'pending_count': pending_count,
+
+        'confirmed_count': confirmed_count,
+
+        'total_helpers': total_helpers,
+
+        'recent_bookings': recent_bookings
+
+    }
+
+
     return render(request, 'user_dashboard.html')

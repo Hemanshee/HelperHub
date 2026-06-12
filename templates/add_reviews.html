@@ -2,23 +2,80 @@
 
 {% block content %}
 
-<div class="container mt-5">
-    <div class="card p-4 shadow">
+<section class="review-page">
 
-        <h3>Review {{ helper.name }}</h3>
+    <div class="review-container">
 
-        <form method="POST">
-            {% csrf_token %}
+        <div class="review-left">
 
-            <label>Rating (1-5)</label>
-            <input type="number" name="rating" min="1" max="5" class="form-control mb-3">
+            <div class="review-icon">
+                ⭐
+            </div>
 
-            <textarea name="comment" class="form-control mb-3" placeholder="Write review"></textarea>
+            <h2>Review {{ helper.name }}</h2>
 
-            <button class="btn btn-warning w-100">Submit</button>
-        </form>
+            <p>
+                Your feedback helps other users choose the best helper.
+            </p>
+
+            <div class="helper-review-card">
+
+                <h4>Helper Name</h4>
+
+                <span>{{ helper.name }}</span>
+
+            </div>
+
+        </div>
+
+        <div class="review-right">
+
+            <h3>Share Your Experience</h3>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="form-group">
+
+                    <label>Rating (1 - 5)</label>
+
+                    <input
+                        type="number"
+                        name="rating"
+                        min="1"
+                        max="5"
+                        class="review-input"
+                        placeholder="Enter Rating"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Your Feedback</label>
+
+                    <textarea
+                        name="comment"
+                        rows="5"
+                        class="review-input"
+                        placeholder="Write your experience here..."
+                        required
+                    ></textarea>
+
+                </div>
+
+                <button class="submit-review-btn">
+                    Submit Review
+                </button>
+
+            </form>
+
+        </div>
 
     </div>
-</div>
+
+</section>
 
 {% endblock %}

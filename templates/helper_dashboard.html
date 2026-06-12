@@ -1,6 +1,201 @@
-<h2>Helper Dashboard</h2>
+{% extends 'base.html' %}
 
-<p>Welcome {{ request.user.username }}</p>
-<a href="/helpers/add/">Add Profile</a>
-<a href="/helpers/">View Helpers</a>
-<a href="/bookings/my-bookings/">My Bookings</a>
+{% block content %}
+
+<section class="helper-dashboard">
+
+    <div class="helper-banner">
+
+        <div class="banner-left">
+
+            <h1>
+                Welcome Back, {{ request.user.username }}! 👋
+            </h1>
+
+            <p>
+                Manage your profile, bookings and grow your service business.
+            </p>
+
+        </div>
+
+        <div class="banner-right">
+
+            <div class="helper-illustration">
+                👩‍🔧
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="icon-circle">
+                👤
+            </div>
+
+            <div>
+
+                <h4>Profile Status</h4>
+
+                <h2>Complete</h2>
+
+                <p>Your profile is active</p>
+
+            </div>
+
+        </div>
+
+        <div class="stat-card">
+
+            <div class="icon-circle">
+                📅
+            </div>
+
+            <div>
+
+                <h4>Total Bookings</h4>
+
+                <h2>24</h2>
+
+                <p>+8 this month</p>
+
+            </div>
+
+        </div>
+
+        <div class="stat-card">
+
+            <div class="icon-circle">
+                ⭐
+            </div>
+
+            <div>
+
+                <h4>Average Rating</h4>
+
+                <h2>4.8</h2>
+
+                <p>Based on reviews</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h2 class="section-title">
+        Quick Actions
+    </h2>
+
+    <div class="action-grid">
+
+        <a href="/helpers/add/" class="action-card">
+
+            <div class="action-icon">
+                👤
+            </div>
+
+            <div>
+
+                <h3>Add Profile</h3>
+
+                <p>Create or update your helper profile</p>
+
+            </div>
+
+        </a>
+
+        <a href="/helpers/" class="action-card">
+
+            <div class="action-icon">
+                👥
+            </div>
+
+            <div>
+
+                <h3>View Helpers</h3>
+
+                <p>Browse all available helpers</p>
+
+            </div>
+
+        </a>
+
+        <a href="/bookings/my-bookings/" class="action-card">
+
+            <div class="action-icon">
+                📅
+            </div>
+
+            <div>
+
+                <h3>My Bookings</h3>
+
+                <p>View and manage bookings</p>
+
+            </div>
+
+        </a>
+
+    </div>
+
+    <div class="activity-card">
+
+        <div class="activity-header">
+
+            <h2>Recent Activity</h2>
+
+            <a href="#">View All</a>
+
+        </div>
+
+        <div class="activity-item">
+
+            <span>📅</span>
+
+            <div>
+
+                <h4>New booking received</h4>
+
+                <p>House Cleaning - 12 June, 10:00 AM</p>
+
+            </div>
+
+        </div>
+
+        <div class="activity-item">
+
+            <span>👤</span>
+
+            <div>
+
+                <h4>Profile updated</h4>
+
+                <p>You updated your profile information.</p>
+
+            </div>
+
+        </div>
+
+        <div class="activity-item">
+
+            <span>⭐</span>
+
+            <div>
+
+                <h4>New review received</h4>
+
+                <p>You received a 5 star review.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -2,9 +2,49 @@
 
 {% block content %}
 
+<section class="success-page">
 
-    <h2>Payment Successful 🎉</h2>
-<a href="/bookings/my-bookings/">Go to Bookings</a>
+    <div class="success-card">
 
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h1>Payment Successful 🎉</h1>
+
+        <p>
+            Your payment has been completed successfully.
+            Your booking is now confirmed and our helper will contact you soon.
+        </p>
+
+        <div class="success-info">
+
+            <div class="info-box">
+                <span>Booking</span>
+                <strong>Confirmed</strong>
+            </div>
+
+            <div class="info-box">
+                <span>Status</span>
+                <strong>Paid</strong>
+            </div>
+
+        </div>
+
+        <div class="success-actions">
+
+            <a href="/bookings/my-bookings/" class="success-btn">
+                View My Bookings
+            </a>
+
+            <a href="/" class="home-btn">
+                Back To Home
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}
